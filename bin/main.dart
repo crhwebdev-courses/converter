@@ -10,7 +10,7 @@ void main() {
     exit(0);
   }
 
-  prompter.askMultiple('Select format:', buildFormatOptions());
+  final format = prompter.askMultiple('Select format:', buildFormatOptions());
 }
 
 List<Option> buildFormatOptions() {
