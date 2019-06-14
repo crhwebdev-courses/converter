@@ -11,8 +11,7 @@ void main() {
   }
 
   final format = prompter.askMultiple('Select format:', buildFormatOptions());
-  // prompter.askMultiple('Select an image to convert:', buildFileOptions())
-  buildFileOptions();
+  prompter.askMultiple('Select an image to convert:', buildFileOptions());
 }
 
 List<Option> buildFormatOptions() {
@@ -23,14 +22,11 @@ List<Option> buildFormatOptions() {
 }
 
 List<Option> buildFileOptions() {
-  // Get a reference to the current working directory
-  final currentDirectory = Directory.current;
-
-  // Find all the files and folders in this directory
-  final entities = currentDirectory.listSync();
-  print(entities);
-
-  // Look through that list and find only the *images*
-
-  // Take all the images and created an option object out of each
+  return Directory.current.listSync().where((entity) {
+    return FileSystemEntity.isFileSync(entity.path) &&
+        entity.path.contains(RegExp(r'\.(png|jpg|jpeg)'));
+  }).map((entity) {
+    final filename = entity.path.split(Platform.pathSeparator).last;
+    return new Option(filename, entity);
+  }).toList();
 }
