@@ -11,7 +11,8 @@ void main() {
   }
 
   final format = prompter.askMultiple('Select format:', buildFormatOptions());
-  prompter.askMultiple('Select an image to convert:', buildFileOptions());
+  final selectedFile =
+      prompter.askMultiple('Select an image to convert:', buildFileOptions());
 }
 
 List<Option> buildFormatOptions() {
