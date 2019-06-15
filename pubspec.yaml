@@ -4,3 +4,4 @@ version: 0.0.1
 
 dependencies:
   prompter_crh: 1.0.0
+  image: 2.0.4
