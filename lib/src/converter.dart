@@ -18,7 +18,7 @@ convertImage(FileSystemEntity selectedFile, String format) {
     print('Unsupported file type');
   }
 
-  File('lkalksdjfj').writeAsBytesSync(newImage);
+  File(replaceExtension(selectedFile.path, format)).writeAsBytesSync(newImage);
 }
 
 String replaceExtension(String path, String newExtension) {
