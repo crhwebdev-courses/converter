@@ -20,3 +20,7 @@ convertImage(FileSystemEntity selectedFile, String format) {
 
   File('lkalksdjfj').writeAsBytesSync(newImage);
 }
+
+String replaceExtension(String path, String newExtension) {
+  return path.replaceAll(RegExp(r'(png|jpg|jpeg)'), newExtension);
+}
