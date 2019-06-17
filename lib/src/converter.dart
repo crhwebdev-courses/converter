@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:image/image.dart';
 
-convertImage(FileSystemEntity selectedFile, String format) {
+String convertImage(FileSystemEntity selectedFile, String format) {
   //read type cast file as bytes
   final rawImage = (selectedFile as File).readAsBytesSync();
 
@@ -18,7 +18,11 @@ convertImage(FileSystemEntity selectedFile, String format) {
     print('Unsupported file type');
   }
 
-  File(replaceExtension(selectedFile.path, format)).writeAsBytesSync(newImage);
+  final newPath = replaceExtension(selectedFile.path, format)
+
+  File(newPath).writeAsBytesSync(newImage);
+
+  return newPath;
 }
 
 String replaceExtension(String path, String newExtension) {
