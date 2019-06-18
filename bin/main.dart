@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:prompter_crh/prompter_crh.dart';
+import 'package:converter/src/converter.dart';
 
 void main() {
   final prompter = Prompter();
@@ -13,6 +14,7 @@ void main() {
   final format = prompter.askMultiple('Select format:', buildFormatOptions());
   final selectedFile =
       prompter.askMultiple('Select an image to convert:', buildFileOptions());
+  final newPath = convertImage(selectedFile, format);
 }
 
 List<Option> buildFormatOptions() {
