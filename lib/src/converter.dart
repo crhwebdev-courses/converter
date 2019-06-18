@@ -18,7 +18,7 @@ String convertImage(FileSystemEntity selectedFile, String format) {
     print('Unsupported file type');
   }
 
-  final newPath = replaceExtension(selectedFile.path, format)
+  final newPath = replaceExtension(selectedFile.path, format);
 
   File(newPath).writeAsBytesSync(newImage);
 
