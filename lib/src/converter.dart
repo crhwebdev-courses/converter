@@ -10,7 +10,7 @@ String convertImage(FileSystemEntity selectedFile, String format) {
 
   var newImage;
 
-  if (format == 'jpg') {
+  if (format == 'jpeg') {
     newImage = encodeJpg(image);
   } else if (format == 'png') {
     newImage = encodePng(image);
