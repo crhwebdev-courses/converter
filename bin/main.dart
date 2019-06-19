@@ -19,7 +19,11 @@ void main() {
   final shouldOpen = prompter.askBinary('Open the image?');
 
   if (shouldOpen) {
-    Process.run('open', [newPath]);
+    if (Platform.isWindows) {
+      Process.run('explorer', [newPath]);
+    } else {
+      Process.run('open', [newPath]);
+    }
   }
 }
 
